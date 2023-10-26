@@ -7,16 +7,18 @@ import (
 
 // Server serves HTTPS requests for our banking service.
 type Server struct {
-	store  *db.Store
+	store  db.Store
 	router *gin.Engine
 }
 
 // NewServer creates a new HTTP server and setup routing.
-func NewServer(store *db.Store) *Server {
+func NewServer(store db.Store) *Server {
 	server := &Server{store: store}
 	router := gin.Default()
 
 	router.POST("/accounts", server.createAccount)
+	router.GET("/account/:id", server.getAccount)
+	router.GET("/accounts", server.listAccounts)
 
 	// add routes to router
 	server.router = router
