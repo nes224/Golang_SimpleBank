@@ -17,7 +17,5 @@ jobs:
         repo: simplebank
         region: ap-southeast-1
         tags: latest,${{ github.sha }}
-        create_repo: true
-        set_repo_policy: true
 
 
