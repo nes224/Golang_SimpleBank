@@ -28,6 +28,9 @@ test:
 server:
 	go run main.go
 
+up_build:
+	docker-compose up -d --build 
+
 mock:
 	mockgen -package mockdb -destination db/mock/store.go github.com/techschool/simplebank/db/sqlc Store
 
